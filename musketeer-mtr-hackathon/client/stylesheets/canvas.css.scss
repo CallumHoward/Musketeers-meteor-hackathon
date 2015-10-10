@@ -3,4 +3,18 @@
   height: 480px;
   width: 854px;
   position: relative;
+
+  .element-draggable {
+    padding: 15px;
+    cursor: move;
+  }
+
+  .element-item {
+
+  }
+
+  input {
+    position:relative;
+    z-index:1;
+  }
 }
