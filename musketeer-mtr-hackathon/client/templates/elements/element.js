@@ -6,7 +6,7 @@ Template.element.events({
     var text = $(e.target).find('[name=text]').val();
 
 
-    Elements.update(elementId, {$set: {text: text}})
+    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}})
 
   }
 });

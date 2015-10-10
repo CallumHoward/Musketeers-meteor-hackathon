@@ -1,4 +1,17 @@
 <template name="element">
+  <div class="edit-element" style="visibility: {{editVisible}}">
+    <form class="edit-element" data-id="{{_id}}">
+      <select>
+        <option value="Comic Sans Ms">Comic Sans Ms</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+    </form>
+  </div>
+
+  <br/>
+
   <div class="element-item" style="
    position: absolute;
    left: {{left}}px;
