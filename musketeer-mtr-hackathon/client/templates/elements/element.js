@@ -16,6 +16,14 @@ Template.element.events({
     Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
   },
 
+  'mouseenter .element-item': function(e) {
+    $(e.target).css('border', 'dashed 1px rgba(0,0,0,0.4)');
+  },
+
+  'mouseleave .element-item': function(e) {
+    $(e.target).css('border', 'dashed 1px transparent');
+  },
+
   'change .edit-family': function(e){
     e.preventDefault();
     var elementId = $(e.target).data("id");
@@ -24,11 +32,11 @@ Template.element.events({
   },
 
   'focus .element-draggable': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').show();
+    $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },
 
   'blur .element-draggable': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').hide();
+    $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'hidden');
   },
 
   'change .edit-size': function(e) {

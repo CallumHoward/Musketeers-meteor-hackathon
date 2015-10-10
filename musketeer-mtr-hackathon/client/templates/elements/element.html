@@ -1,26 +1,25 @@
 <template name="element">
 
-  <div class="edit-element" data-id="{{_id}}"
-    style="position: absolute;
-          left: {{editElementLeft}}px;
-          top: {{editElementTop}}px;
-          display: none;">
-    {{> editFontFamily}}
-    {{> editFontSize}}
-  </div>
-
   <div class="element-draggable draggable" data-id="{{_id}}"
     style="position: absolute;
           left: {{left}}px;
           top: {{top}}px;">
 
-    <div class="element-item" data-active="false" style="
-     color: {{fontColor}};
-     font: {{fontStyle}}
-           {{fondVariant}}
-           {{fontWeight}}
-           {{fontSize}}px
-           {{fontFamily}}">
+    <div class="edit-element" data-id="{{_id}}"
+      style="visibility: hidden">
+      {{> editFontFamily}}
+      {{> editFontSize}}
+    </div>
+
+    <br/>
+
+    <div class="element-item" data-active="false"
+        style="color: {{fontColor}};
+              font: {{fontStyle}}
+                    {{fondVariant}}
+                    {{fontWeight}}
+                    {{fontSize}}px
+                    {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
         <textarea name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text">{{text}}</textarea>
       </form>
