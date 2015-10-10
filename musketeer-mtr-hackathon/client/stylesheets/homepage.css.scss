@@ -1,0 +1,54 @@
+@import 'colors.css.scss';  // Colors
+
+.top-wrapper {
+  color: white;
+  padding: 30px 0px;
+  background-color: #068B78;
+}
+
+.home-button {
+  margin-top: 10px;
+  // color: $grey-blue;
+  font-size: 20px;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.main-message {
+  h2 {
+    color: $grey-blue;
+    font-weight: 900;
+  }
+}
+
+
+.theme-selector {
+  padding: 20px;
+  background-color: #9ED79A;
+}
+
+.theme-thumbnail {
+  background-color: white;
+  height: 60px;
+  width: 80%;
+}
+
+.home-canvas-picker {
+    background-color: #D4D4D4;
+    height: 550px;
+    padding: 40px;
+    overflow-y: scroll;
+}
+
+.home-canvas {
+  padding: 30px 30px 30px 40px;
+  background-color: $wash-grey;
+}
+
+.canvas-thumbnail {
+  min-height: 140px;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 25px;
+}

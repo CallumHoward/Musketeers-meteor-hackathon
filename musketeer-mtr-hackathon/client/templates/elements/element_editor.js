@@ -1,4 +1,4 @@
-var fontFamilyItems = ['Comic Sans Ms', 'Verdana', 'Georgia', 'Times New Roman'];
+var fontFamilyItems = ['Open Sans', 'Noto Sans', 'Lato', 'Montserrat', 'Satisfy', '	Gloria Hallelujah', 'Patua One', 'Abril Fatface'];
 var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80, 88, 96, 104, 120, 144];
 var fontColorItems = ['black', 'white', 'red', 'blue', 'green', 'grey', 'cyan', 'yellow'];
 var fontStyleItems = ['bold', 'italic'];

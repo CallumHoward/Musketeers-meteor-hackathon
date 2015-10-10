@@ -1,11 +1,49 @@
 <template name="homepage">
-  <div class="container">
-    <br/>
-    <br/>
-    <div class="canvas">
-      {{#each elements}}
-        {{> element}}
-      {{/each}}
+  {{> header}}
+
+  <div class="container-fluid no-margins">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="home-canvas">
+          <div class="canvas">
+            {{#each elements}}
+              {{> element}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-offset-1 col-md-3 home-canvas-picker">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="canvas-thumbnail">
+              hello world
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="canvas-thumbnail">
+              hello world
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="canvas-thumbnail">
+              hello world
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="canvas-thumbnail">
+              hello world
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="canvas-thumbnail">
+              hello world
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div><!-- container -->
+  </div>
 </template>

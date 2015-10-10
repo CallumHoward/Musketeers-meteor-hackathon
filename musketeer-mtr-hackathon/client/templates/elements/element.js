@@ -35,6 +35,12 @@ Template.element.events({
   },
 });
 
+Template.element.helpers({
+  adjustedTop: function(){
+    return this.top - 40;
+  }
+})
+
 Template.element.rendered = function () {
   $( ".draggable" ).draggable({
     stop: function(event, ui) {
