@@ -22,12 +22,6 @@ Template.element.events({
     $('.edit-element[data-id="'+ this._id +'"]').hide();
   },
 
-  'change .edit-size': function(e) {
-    e.preventDefault();
-    var elementId = $(e.target).data("id");
-    var currFontSize = $('#font-size').val();
-    Elements.update(elementId, {$set: {fontSize: currFontSize}});
-  }
 });
 
 Template.element.rendered = function () {
@@ -57,4 +51,14 @@ var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
 Template.editFontSize.helpers({
   fontSizes: fontSizeItems,
   fontFamilies: fontFamiliesItems
+});
+
+Template.editFontSize.events({
+  'change .edit-size': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontSize = $(e.target).find('[name=font-size]').context.value;
+    console.log(currFontSize);
+    Elements.update(elementId, {$set: {fontSize: currFontSize}});
+  }
 });
