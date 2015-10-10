@@ -35,11 +35,20 @@
 
 .home-canvas-picker {
     background-color: #D4D4D4;
-    min-height: 500px;
+    height: 550px;
     padding: 40px;
+    overflow-y: scroll;
 }
 
 .home-canvas {
-  padding: 30px 30px 30px 90px;
+  padding: 30px 30px 30px 40px;
   background-color: $wash-grey;
+}
+
+.canvas-thumbnail {
+  min-height: 140px;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 25px;
 }

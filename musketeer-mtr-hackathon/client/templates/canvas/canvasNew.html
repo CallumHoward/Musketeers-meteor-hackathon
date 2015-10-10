@@ -1,15 +1,26 @@
 <template name="canvasNew">
-    <h1>Create new canvas</h1>
+  <h1>Create new canvas</h1>
 
-    <!-- canvas -->
-    <div class="canvas">
-        {{#each elements}}
-            {{> element }}
-        {{/each}}
-        test
-    </div>
+  <!-- canvas -->
+  <div class="canvas">
+      {{#each currentCanvasHelper}}
+        {{> element }}
+      {{/each}}
+  </div>
 
+  <!-- button -->
+  <button id="submit-button">add text element</button>
 
-    <!-- button -->
-    <button id="submit-button">add textaksdlfjalsd element</button>
+  <!-- save -->
+  <button id="save-button">save</button>
+  <input id="canvas-name-input" />
+
+  <!-- load -->
+  <button id="load-button">load</button>
+  <select id="load-button-select">
+    {{#each canvases}}
+      <option value="{{_id}}"> {{name}} </option>
+    {{/each}}
+  </select>
+
 </template>

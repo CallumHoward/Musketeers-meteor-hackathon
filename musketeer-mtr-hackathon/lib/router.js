@@ -17,7 +17,8 @@ Router.route('/canvasNew', {
   name: 'canvasNew',
   data: function(){
     return{
-      elements: Elements.find()
+      canvases: Canvases.find(),
+      elements: Elements.find(),
     };
   }
 });
