@@ -1,10 +1,11 @@
 Template.element.events({
-  'blur .element-input': function(e){
+  'blur .element-input': function(e) {
     e.preventDefault();
 
     var elementId = $(e.target).data("id");
-    var text = $(e.target).find('[name=text]').val();
-    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
+    var text = $(e.target).val();
+
+    Elements.update(elementId, {$set: {text: text}});
   },
 
   'mouseenter .element-draggable': function(e) {
