@@ -54,7 +54,6 @@ var fontFamiliesItems = ['Comic Sans Ms', 'Verdana',
 var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
 88, 96, 104, 120, 144];
 
-Template.element.helpers({
-  fontFamilies: fontFamiliesItems,
+Template.editFontSize.helpers({
   fontSizes: fontSizeItems
 });
