@@ -5,8 +5,7 @@ Template.element.events({
     var elementId = $(e.target).data("id");
     var text = $(e.target).find('[name=text]').val();
 
-
-    Elements.update(elementId, {$set: {text: text}})
+    Elements.update(elementId, {$set: {text: text}});
 
   }
 });
