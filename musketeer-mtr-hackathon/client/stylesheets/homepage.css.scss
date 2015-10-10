@@ -11,7 +11,7 @@
   // color: $grey-blue;
   font-size: 20px;
   display: inline-block;
-  margin-left: 24px;
+  margin-left: 50px;
 }
 
 .main-message {
@@ -34,5 +34,12 @@
 }
 
 .home-canvas-picker {
-    background-color: red;
+    background-color: #D4D4D4;
+    min-height: 500px;
+    padding: 40px;
+}
+
+.home-canvas {
+  padding: 30px 30px 30px 90px;
+  background-color: $wash-grey;
 }
