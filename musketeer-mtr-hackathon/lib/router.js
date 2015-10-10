@@ -4,5 +4,11 @@ Router.configure({
 
 
 Router.route('/', {
-  name: 'homepage'
+  name: 'homepage',
+  data: function(){
+    return{
+      elements: Elements.find()
+    };
+  }
+
 });

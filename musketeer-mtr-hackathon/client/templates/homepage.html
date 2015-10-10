@@ -1,3 +1,11 @@
 <template name="homepage">
-  Hello World!
+  <div class="container">
+    <br/>
+    <br/>
+    <div class="canvas">
+      {{#each elements}}
+        {{> element}}
+      {{/each}}
+    </div>
+  </div><!-- container -->
 </template>
