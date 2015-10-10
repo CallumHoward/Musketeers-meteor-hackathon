@@ -4,14 +4,7 @@
          left: {{left}}px;
          top: {{top}}px;">
     <div class="edit-element" data-id="{{_id}}" hidden>
-      <form class="edit-family" data-id="{{_id}}">
-        <select id="font-family" data-id="{{_id}}">
-          <option value="Comic Sans Ms">Comic Sans Ms</option>
-          <option value="Verdana">Verdana</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Times New Roman">Times New Roman</option>
-        </select>
-      </form>
+      {{> editFontFamily}}
       {{> editFontSize}}
     </div>
     <br/>
