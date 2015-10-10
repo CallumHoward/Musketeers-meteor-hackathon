@@ -1,7 +1,12 @@
 <template name="element">
-  <div class="element-item" style="position: absolute; left: {{left}}px; top: {{top}}px">
-    <form class="element-input" data-id="{{_id}}">
-      <input name="text" type="text" value="{{text}}" />
-    </form>
+  <div class="element-draggable draggable" data-id="{{_id}}"
+  style="position: absolute;
+         left: {{left}}px;
+         top: {{top}}px;">
+    <div class="element-item">
+      <form class="element-input" data-id="{{_id}}">
+        <input name="text" type="text" value="{{text}}" />
+      </form>
+    </div>
   </div>
 </template>

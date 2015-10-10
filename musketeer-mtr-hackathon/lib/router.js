@@ -10,5 +10,4 @@ Router.route('/', {
       elements: Elements.find()
     };
   }
-
 });
