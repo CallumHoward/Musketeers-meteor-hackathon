@@ -3,9 +3,8 @@
   style="position: absolute;
          left: {{left}}px;
          top: {{top}}px;">
-
-    <div class="edit-element" style="visibility: {{editVisible}}">
-      <form class="edit-family">
+    <div class="edit-element" data-id="{{_id}}" hidden>
+      <form class="edit-family" data-id="{{_id}}">
         <select id="font-family" data-id="{{_id}}">
           <option value="Comic Sans Ms">Comic Sans Ms</option>
           <option value="Verdana">Verdana</option>
@@ -17,7 +16,7 @@
     </div>
     <br/>
 
-    <div class="element-item" style="
+    <div class="element-item" data-active="false" style="
      color: {{fontColor}};
      font: {{fontStyle}}
            {{fondVariant}}
@@ -25,8 +24,8 @@
            {{fontSize}}px
            {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
-        <textarea>
-          <input name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text" value="{{text}}" />
+        <textarea name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text">
+          {{text}}
         </textarea>
       </form>
     </div>

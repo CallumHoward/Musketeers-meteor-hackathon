@@ -14,6 +14,14 @@ Template.element.events({
     Elements.update(elementId, {$set: {fontFamily: currFontFamily}});
   },
 
+  'focus .element-item': function() {
+    $('.edit-element[data-id="'+ this._id +'"]').toggle();
+  },
+
+  'blur .element-item': function() {
+    $('.edit-element[data-id="'+ this._id +'"]').toggle();
+  },
+
   'change .edit-size': function(e) {
     e.preventDefault();
     var elementId = $(e.target).data("id");
@@ -37,6 +45,7 @@ Template.element.rendered = function () {
       Meteor.call("updateElement", elementId, data);
     }
   });
+
 };
 
 var fontFamiliesItems = ['Comic Sans Ms', 'Verdana',
