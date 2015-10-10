@@ -6,28 +6,23 @@
 
     <div class="edit-element" data-id="{{_id}}"
         style="visibility: hidden">
-      {{> editFontFamily}}
-      {{> editFontSize}}
-      {{> editFontColor}}
-      {{> editFontStyle}}
-      {{> alignText}}
+      {{> elementEditor elementId=this._id}}
     </div>
 
     <br/>
     <div class="element-item" data-active="false" data-id="{{_id}}"
         style="color: {{fontColor}};
+              text-align: {{textAlign}};
               font: {{fontStyle}}
-                    {{fondVariant}}
                     {{fontWeight}}
                     {{fontSize}}px
-                    {{fontFamily}}">
+                    {{fontFamily}};">
       <form class="element-input" data-id="{{_id}}">
         <textarea name="text"
                   type="text"
-                  style="height:{{textBoxHeight}}px;
-                        width:{{textBoxWidth}}px">
-          {{text}}
-        </textarea>
+                  style="background-color: transparent;
+                        height:{{textBoxHeight}}px;
+                        width:{{textBoxWidth}}px;">{{text}}</textarea>
       </form>
     </div>
 
