@@ -1,3 +1,12 @@
+Template.element.helpers({
+  'editElementTop': function() {
+    return this.top - 40;
+  },
+  'editElementLeft': function() {
+    return this.left + 16;
+  }
+});
+
 Template.element.events({
   'submit .element-input': function(e){
     e.preventDefault();

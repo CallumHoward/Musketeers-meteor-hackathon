@@ -1,13 +1,18 @@
 <template name="element">
+
+  <div class="edit-element" data-id="{{_id}}"
+    style="position: absolute;
+          left: {{editElementLeft}}px;
+          top: {{editElementTop}}px;
+          display: none;">
+    {{> editFontFamily}}
+    {{> editFontSize}}
+  </div>
+
   <div class="element-draggable draggable" data-id="{{_id}}"
-  style="position: absolute;
-         left: {{left}}px;
-         top: {{top}}px;">
-    <div class="edit-element" data-id="{{_id}}" hidden>
-      {{> editFontFamily}}
-      {{> editFontSize}}
-    </div>
-    <br/>
+    style="position: absolute;
+          left: {{left}}px;
+          top: {{top}}px;">
 
     <div class="element-item" data-active="false" style="
      color: {{fontColor}};
