@@ -14,9 +14,10 @@
 
   }
 
-  input {
+  textarea {
     position:relative;
     z-index:1;
     border: 0px;
+    resize: none;
   }
 }

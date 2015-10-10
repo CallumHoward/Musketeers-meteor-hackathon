@@ -14,12 +14,12 @@ Template.element.events({
     Elements.update(elementId, {$set: {fontFamily: currFontFamily}});
   },
 
-  'focus .element-item': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').toggle();
+  'focus .element-draggable': function() {
+    $('.edit-element[data-id="'+ this._id +'"]').show();
   },
 
-  'blur .element-item': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').toggle();
+  'blur .element-draggable': function() {
+    $('.edit-element[data-id="'+ this._id +'"]').hide();
   },
 
   'change .edit-size': function(e) {
