@@ -15,6 +15,18 @@ Template.element.events({
     $(e.target).css('border', 'dashed 1px transparent');
   },
 
+  'mouseleave .element-resizable': function(e) {
+    $("textarea").resizable({
+    resize: function() {
+      var elementId = $(e.target).data("id");
+      var textHeight = $(".textbox").height();
+      var textWidth = $(".textbox").width();
+      Elements.update(elementId, {$set: {textBoxHeight: textHeight
+        , textBoxWidth: textWidth}});
+    }
+    });
+  },
+
   'focus .element-draggable': function() {
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },

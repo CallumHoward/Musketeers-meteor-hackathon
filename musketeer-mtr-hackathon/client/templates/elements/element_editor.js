@@ -19,6 +19,14 @@ Template.elementEditor.helpers({
   },
   textAligns: function() {
     return textAlignItems;
+  },
+  checkSelected: function(attr) {
+    var selectedElement = Elements.findOne(
+      {_id: Template.parentData(1)._id}
+    );
+    if (selectedElement[attr] === this[attr]) {
+      return "selected";
+    }
   }
 });
 
