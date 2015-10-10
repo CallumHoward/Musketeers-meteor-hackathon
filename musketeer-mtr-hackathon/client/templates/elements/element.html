@@ -3,9 +3,16 @@
   style="position: absolute;
          left: {{left}}px;
          top: {{top}}px;">
-    <div class="element-item">
+
+    <div class="element-item" style="
+     color: {{fontColor}};
+     font: {{fontStyle}}
+           {{fondVariant}}
+           {{fontWeight}}
+           {{fontSize}}px
+           {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
-        <input name="text" type="text" value="{{text}}" />
+        <input name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text" value="{{text}}" />
       </form>
     </div>
   </div>
