@@ -3,6 +3,7 @@
   height: 400px;
   width: 700px;
   position: relative;
+  overflow: hidden;
 
   .element-draggable {
     padding: 15px;
@@ -16,5 +17,6 @@
   input {
     position:relative;
     z-index:1;
+    border: 0px;
   }
 }

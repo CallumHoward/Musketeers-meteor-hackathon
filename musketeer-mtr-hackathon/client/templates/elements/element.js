@@ -4,17 +4,24 @@ Template.element.events({
 
     var elementId = $(e.target).data("id");
     var text = $(e.target).find('[name=text]').val();
-    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}})
+    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
   },
 
   'submit .edit-element': function(e){
     e.preventDefault();
     var elementId = $(e.target).data("id");
     var text = $(e.target).find('[name=text]').val();
-    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}})
+    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
+  },
+
+  'focus .element-item': function(e) {
+    $('.edit-element[data-id="'+ this._id +'"]').toggle();
+  },
+
+  'blur .element-item': function(e) {
+    $('.edit-element[data-id="'+ this._id +'"]').toggle();
   }
 });
-
 
 Template.element.rendered = function () {
   $( ".draggable" ).draggable({
@@ -31,4 +38,5 @@ Template.element.rendered = function () {
       Meteor.call("updateElement", elementId, data);
     }
   });
+
 };
