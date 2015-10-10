@@ -1,11 +1,24 @@
 <template name="homepage">
+  {{> header}}
+  <br/>
+  <br/>
   <div class="container">
-    <br/>
-    <br/>
-    <div class="canvas">
-      {{#each elements}}
-        {{> element}}
-      {{/each}}
+    <div class="row">
+      <div class="col-md-12">
+
+      </div><!-- col-->
+    </div><!-- row -->
+    <div class="row">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-8">
+        <div class="canvas">
+          {{#each elements}}
+            {{> element}}
+          {{/each}}
+        </div>
+      </div>
     </div>
-  </div><!-- container -->
+  </div>
 </template>
