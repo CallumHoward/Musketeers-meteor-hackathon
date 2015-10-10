@@ -1,0 +1,33 @@
+<template name="elementEditor">
+
+  <form class="text-editor">
+    <select data-id="{{elementId}}" name="fontColor">
+      {{#each fontColors}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    <select data-id="{{elementId}}" name="fontFamily">
+      {{#each fontFamilies}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    <select data-id="{{elementId}}" name="fontSize">
+      {{#each fontSizes}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    <select data-id="{{elementId}}" name="textAlign">
+      {{#each textAligns}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    {{#each fontStyles}}
+      <input type="checkbox" data-id="{{elementId}}" name="{{this}}" value="{{this}}">{{this}}
+    {{/each}}
+  </form>
+
+</template>
