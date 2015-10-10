@@ -25,17 +25,38 @@ Template.canvasNew.events({
       textBoxWidth: contentWidth,
       textBoxHeight: 200
     });
+
+    Session.set("currentCanvas", _.map(Elements.find().fetch(), function(element){
+        return element._id;
+    }));
   },
 
   'click #save-button': function(e) {
     e.preventDefault();
-    var canvasName = "test canvas 1";
-    var elements = [];
-    var allElements = Elements.find().fetch();
-    for (var element in allElements) {
-        elements.push(element._id);
-        console.log("an element");
-    }
-    Canvases.upsert(canvasName, {$set: {elements: elements}});
+    var canvasName = $("#canvas-name-input").val();
+    // extract element ids from session
+    var elements = _.map(Session.get("currentCanvas"), function(element){ return element._id; });
+    Canvases.insert({name: canvasName, elements: elements});
+  },
+
+  'click #load-button': function(e) {
+    e.preventDefault();
+    var canvasId = $("#load-button-select").val();
+    var elementIds = Canvases.findOne(canvasId).elements;
+    Session.set("currentCanvas", elementIds);
   }
+});
+
+Template.canvasNew.helpers({
+    // given canvas id, returns all elements in canvas
+    currentCanvasHelper: function() {
+        var elementIds = Session.get("currentCanvas");
+        return _.map(elementIds, function(elementId){
+            return Elements.findOne(elementId);
+        });
+    },
+
+//    canvasName: function(canvasId) {
+//        return Canvases.findOne(canvasId).name;
+//    }
 });
