@@ -1,6 +1,6 @@
 <template name="editFontSize">
   <form class="edit-size">
-    <select id="font-size" data-id="{{_id}}">
+    <select name="font-size" id="font-size" data-id="{{_id}}">
       {{#each fontSizes}}
         {{> fontSizeItem}}
       {{/each}}

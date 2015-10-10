@@ -1,12 +1,3 @@
-Template.element.helpers({
-  'editElementTop': function() {
-    return this.top - 40;
-  },
-  'editElementLeft': function() {
-    return this.left + 16;
-  }
-});
-
 Template.element.events({
   'submit .element-input': function(e){
     e.preventDefault();
@@ -16,11 +7,11 @@ Template.element.events({
     Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
   },
 
-  'mouseenter .element-item': function(e) {
+  'mouseenter .element-draggable': function(e) {
     $(e.target).css('border', 'dashed 1px rgba(0,0,0,0.4)');
   },
 
-  'mouseleave .element-item': function(e) {
+  'mouseleave .element-draggable': function(e) {
     $(e.target).css('border', 'dashed 1px transparent');
   },
 
@@ -44,6 +35,29 @@ Template.element.events({
     var elementId = $(e.target).data("id");
     var currFontSize = $('#font-size').val();
     Elements.update(elementId, {$set: {fontSize: currFontSize}});
+  },
+
+  'change .edit-color': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontColor = $('#font-color').val();
+    Elements.update(elementId, {$set: {fontColor: currFontColor}});
+  },
+
+  'change .edit-style': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontStyle = $('#font-style').val();
+    fontStyle = {};
+    if (currFontStyle === 'italic') {
+      fontStyle['fontStyle'] = currFontStyle;
+      fontStyle['fontWeight'] = '';
+    }
+    else {
+      fontStyle['fontWeight'] = currFontStyle;
+      fontStyle['fontStyle'] = '';
+    }
+    Elements.update(elementId, {$set: fontStyle});
   }
 });
 
@@ -71,10 +85,23 @@ var fontFamiliesItems = ['Comic Sans Ms', 'Verdana',
 var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
 88, 96, 104, 120, 144];
 
+var fontColorItems = ['black', 'white', 'red', 'blue',
+'green', 'grey', 'cyan', 'yellow'];
+
+var fontStyleItems = ['bold', 'italic'];
+
 Template.editFontSize.helpers({
   fontSizes: fontSizeItems
 });
 
 Template.editFontFamily.helpers({
   fontFamilies: fontFamiliesItems
+});
+
+Template.editFontColor.helpers({
+  fontColors: fontColorItems
+});
+
+Template.editFontStyle.helpers({
+  fontStyles: fontStyleItems
 });

@@ -1,19 +1,19 @@
 <template name="element">
-
   <div class="element-draggable draggable" data-id="{{_id}}"
-    style="position: absolute;
-          left: {{left}}px;
-          top: {{top}}px;">
+      style="position: absolute;
+            left: {{left}}px;
+            top: {{top}}px;">
 
     <div class="edit-element" data-id="{{_id}}"
-      style="visibility: hidden">
+        style="visibility: hidden">
       {{> editFontFamily}}
       {{> editFontSize}}
+      {{> editFontColor}}
+      {{> editFontStyle}}
     </div>
 
     <br/>
-
-    <div class="element-item" data-active="false"
+    <div class="element-item" data-active="false" data-id="{{_id}}"
         style="color: {{fontColor}};
               font: {{fontStyle}}
                     {{fondVariant}}
@@ -21,8 +21,14 @@
                     {{fontSize}}px
                     {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
-        <textarea name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text">{{text}}</textarea>
+        <textarea name="text"
+                  type="text"
+                  style="height:{{textBoxHeight}}px;
+                        width:{{textBoxWidth}}px">
+          {{text}}
+        </textarea>
       </form>
     </div>
+
   </div>
 </template>
