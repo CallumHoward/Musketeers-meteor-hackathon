@@ -3,6 +3,7 @@
   height: 480px;
   width: 854px;
   position: relative;
+  overflow: hidden;
 
   .element-draggable {
     padding: 15px;
@@ -13,8 +14,23 @@
 
   }
 
-  input {
+  textarea {
     position:relative;
     z-index:1;
+    border: 0px;
+    resize: none;
+  }
+
+  textarea:hover,
+  textarea:active,
+  textarea:focus,
+  input:hover,
+  input:active,
+  input:focus,
+  button:focus,
+  button:active,
+  button:hover {
+    outline:0px !important;
+    -webkit-appearance:none;
   }
 }

@@ -1,0 +1,14 @@
+<template name="alignText">
+  <form class="edit-align">
+    <select id="align-text" data-id="{{_id}}">
+      {{#each alignTexts}}
+        {{> alignTextItem}}
+      {{/each}}
+    </select>
+  </form>
+  <br/>
+</template>
+
+<template name="alignTextItem">
+  <option value="{{this}}">{{this}}</option>
+</template>

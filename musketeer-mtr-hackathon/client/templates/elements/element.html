@@ -1,31 +1,30 @@
 <template name="element">
   <div class="element-draggable draggable" data-id="{{_id}}"
-  style="position: absolute;
-         left: {{left}}px;
-         top: {{top}}px;">
+      style="position: absolute;
+            left: {{left}}px;
+            top: {{top}}px;">
 
-    <div class="edit-element" style="visibility: {{editVisible}}">
-      <form class="edit-family" data-id="{{_id}}">
-        <select>
-          <option value="Comic Sans Ms">Comic Sans Ms</option>
-          <option value="Verdana">Verdana</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Times New Roman">Times New Roman</option>
-        </select>
-      </form>
+    <div class="edit-element" data-id="{{_id}}"
+        style="visibility: hidden">
+      {{> elementEditor elementId=this._id}}
     </div>
+
     <br/>
-
-    <div class="element-item" style="
-     color: {{fontColor}};
-     font: {{fontStyle}}
-           {{fondVariant}}
-           {{fontWeight}}
-           {{fontSize}}px
-           {{fontFamily}}">
-      <form class="element-input" data-id="{{_id}}">
-        <input name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text" value="{{text}}" />
-      </form>
+    <div class="element-item" data-active="false" data-id="{{_id}}"
+        style="color: {{fontColor}};
+              text-align: {{textAlign}};
+              font: {{fontStyle}}
+                    {{fontWeight}}
+                    {{fontSize}}px
+                    {{fontFamily}};">
+      <textarea name="text"
+                data-id="{{_id}}"
+                class="element-input"
+                type="text"
+                style="background-color: transparent;
+                      height:{{textBoxHeight}}px;
+                      width:{{textBoxWidth}}px;">{{text}}</textarea>
     </div>
+
   </div>
 </template>
