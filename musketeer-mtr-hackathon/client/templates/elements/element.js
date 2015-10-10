@@ -1,3 +1,12 @@
+Template.element.helpers({
+  'editElementTop': function() {
+    return this.top - 40;
+  },
+  'editElementLeft': function() {
+    return this.left + 16;
+  }
+});
+
 Template.element.events({
   'submit .element-input': function(e){
     e.preventDefault();
@@ -49,7 +58,10 @@ var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
 88, 96, 104, 120, 144];
 
 Template.editFontSize.helpers({
-  fontSizes: fontSizeItems,
+  fontSizes: fontSizeItems
+});
+
+Template.editFontFamily.helpers({
   fontFamilies: fontFamiliesItems
 });
 
