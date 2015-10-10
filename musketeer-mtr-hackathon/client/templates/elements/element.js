@@ -59,6 +59,13 @@ Template.element.events({
       fontStyle['fontStyle'] = '';
     }
     Elements.update(elementId, {$set: fontStyle});
+  },
+
+  'change .edit-align': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var textAlignment = $('#align-text').val();
+    Elements.update(elementId, {$set: {textAlignment: textAlignment}});
   }
 });
 
@@ -91,6 +98,8 @@ var fontColorItems = ['black', 'white', 'red', 'blue',
 
 var fontStyleItems = ['bold', 'italic'];
 
+var alignTextItems = ['left', 'center', 'right'];
+
 Template.editFontSize.helpers({
   fontSizes: fontSizeItems
 });
@@ -105,4 +114,8 @@ Template.editFontColor.helpers({
 
 Template.editFontStyle.helpers({
   fontStyles: fontStyleItems
+});
+
+Template.alignText.helpers({
+  alignTexts: alignTextItems
 });

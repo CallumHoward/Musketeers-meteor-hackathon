@@ -8,6 +8,7 @@
       {{> editFontSize}}
       {{> editFontColor}}
       {{> editFontStyle}}
+      {{> alignText}}
     </div>
 
     <div class="element-item" data-active="false" style="
@@ -19,7 +20,8 @@
            {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
         <textarea name="text" style="height:{{textBoxHeight}}px;
-         width:{{textBoxWidth}}px" type="text">{{text}}</textarea>
+         width:{{textBoxWidth}}px;
+         text-align:{{textAlignment}}" type="text">{{text}}</textarea>
       </form>
     </div>
   </div>
