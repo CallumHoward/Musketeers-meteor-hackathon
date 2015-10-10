@@ -1,0 +1,13 @@
+<template name="editFontStyle">
+  <form class="edit-style">
+    <select id="font-style" data-id="{{_id}}">
+      {{#each fontStyles}}
+        {{> fontStyleItem}}
+      {{/each}}
+    </select>
+  </form>
+</template>
+
+<template name="fontStyleItem">
+  <option value="{{this}}">{{this}}</option>
+</template>
