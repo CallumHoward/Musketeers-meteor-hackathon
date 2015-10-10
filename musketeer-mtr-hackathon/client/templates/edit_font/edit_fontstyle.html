@@ -1,0 +1,12 @@
+<template name="editFontStyle">
+  <form class="edit-style">
+      {{#each fontStyles}}
+        {{> fontStyleItem}}
+      {{/each}}
+  </form>
+  <br/>
+</template>
+
+<template name="fontStyleItem">
+  <input type="checkbox" value="{{this}}">{{this}}
+</template>

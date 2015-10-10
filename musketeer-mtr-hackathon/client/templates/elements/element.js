@@ -1,12 +1,3 @@
-Template.element.helpers({
-  'editElementTop': function() {
-    return this.top - 40;
-  },
-  'editElementLeft': function() {
-    return this.left + 16;
-  }
-});
-
 Template.element.events({
   'submit .element-input': function(e){
     e.preventDefault();
@@ -14,6 +5,14 @@ Template.element.events({
     var elementId = $(e.target).data("id");
     var text = $(e.target).find('[name=text]').val();
     Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
+  },
+
+  'mouseenter .element-draggable': function(e) {
+    $(e.target).css('border', 'dashed 1px rgba(0,0,0,0.4)');
+  },
+
+  'mouseleave .element-draggable': function(e) {
+    $(e.target).css('border', 'dashed 1px transparent');
   },
 
   'change .edit-family': function(e){
@@ -24,13 +23,49 @@ Template.element.events({
   },
 
   'focus .element-draggable': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').show();
+    $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },
 
   'blur .element-draggable': function() {
-    $('.edit-element[data-id="'+ this._id +'"]').hide();
+    $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'hidden');
   },
 
+  'change .edit-size': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontSize = $('#font-size').val();
+    Elements.update(elementId, {$set: {fontSize: currFontSize}});
+  },
+
+  'change .edit-color': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontColor = $('#font-color').val();
+    Elements.update(elementId, {$set: {fontColor: currFontColor}});
+  },
+
+  'change .edit-style': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontStyle = $('#font-style').val();
+    fontStyle = {};
+    if (currFontStyle === 'italic') {
+      fontStyle['fontStyle'] = currFontStyle;
+      fontStyle['fontWeight'] = '';
+    }
+    else {
+      fontStyle['fontWeight'] = currFontStyle;
+      fontStyle['fontStyle'] = '';
+    }
+    Elements.update(elementId, {$set: fontStyle});
+  },
+
+  'change .edit-align': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var textAlignment = $('#align-text').val();
+    Elements.update(elementId, {$set: {textAlignment: textAlignment}});
+  }
 });
 
 Template.element.rendered = function () {
@@ -57,6 +92,13 @@ var fontFamiliesItems = ['Comic Sans Ms', 'Verdana',
 var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
 88, 96, 104, 120, 144];
 
+var fontColorItems = ['black', 'white', 'red', 'blue',
+'green', 'grey', 'cyan', 'yellow'];
+
+var fontStyleItems = ['bold', 'italic'];
+
+var alignTextItems = ['left', 'center', 'right'];
+
 Template.editFontSize.helpers({
   fontSizes: fontSizeItems
 });
@@ -65,12 +107,14 @@ Template.editFontFamily.helpers({
   fontFamilies: fontFamiliesItems
 });
 
-Template.editFontSize.events({
-  'change .edit-size': function(e) {
-    e.preventDefault();
-    var elementId = $(e.target).data("id");
-    var currFontSize = $(e.target).find('[name=font-size]').context.value;
-    console.log(currFontSize);
-    Elements.update(elementId, {$set: {fontSize: currFontSize}});
-  }
+Template.editFontColor.helpers({
+  fontColors: fontColorItems
+});
+
+Template.editFontStyle.helpers({
+  fontStyles: fontStyleItems
+});
+
+Template.alignText.helpers({
+  alignTexts: alignTextItems
 });
