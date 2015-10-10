@@ -5,12 +5,20 @@
          top: {{top}}px;">
 
     <div class="edit-element" style="visibility: {{editVisible}}">
-      <form class="edit-family" data-id="{{_id}}">
-        <select>
+      <form class="edit-family">
+        <select id="font-family" data-id="{{_id}}">
           <option value="Comic Sans Ms">Comic Sans Ms</option>
           <option value="Verdana">Verdana</option>
           <option value="Georgia">Georgia</option>
           <option value="Times New Roman">Times New Roman</option>
+        </select>
+      </form>
+      <form class="edit-size">
+        <select id="font-size" data-id="{{_id}}">
+          <option value="12">12</option>
+          <option value="14">14</option>
+          <option value="16">16</option>
+          <option value="18">18</option>
         </select>
       </form>
     </div>
@@ -24,7 +32,9 @@
            {{fontSize}}px
            {{fontFamily}}">
       <form class="element-input" data-id="{{_id}}">
-        <input name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text" value="{{text}}" />
+        <textarea>
+          <input name="text" style="height:{{textBoxHeight}}px; width:{{textBoxWidth}}px" type="text" value="{{text}}" />
+        </textarea>
       </form>
     </div>
   </div>

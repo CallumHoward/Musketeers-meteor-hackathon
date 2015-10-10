@@ -4,17 +4,23 @@ Template.element.events({
 
     var elementId = $(e.target).data("id");
     var text = $(e.target).find('[name=text]').val();
-    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}})
+    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}});
   },
 
-  'submit .edit-element': function(e){
+  'change .edit-family': function(e){
     e.preventDefault();
     var elementId = $(e.target).data("id");
-    var text = $(e.target).find('[name=text]').val();
-    Elements.update(elementId, {$set: {text: text, editVisible: "visible"}})
+    var currFontFamily = $('#font-family').val();
+    Elements.update(elementId, {$set: {fontFamily: currFontFamily}});
+  },
+
+  'change .edit-size': function(e) {
+    e.preventDefault();
+    var elementId = $(e.target).data("id");
+    var currFontSize = $('#font-size').val();
+    Elements.update(elementId, {$set: {fontSize: currFontSize}});
   }
 });
-
 
 Template.element.rendered = function () {
   $( ".draggable" ).draggable({
@@ -32,3 +38,14 @@ Template.element.rendered = function () {
     }
   });
 };
+
+var fontFamiliesItems = ['Comic Sans Ms', 'Verdana',
+'Georgia', 'Times New Roman'];
+
+var fontSizeItems = [12, 14, 16, 18, 21, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80,
+88, 96, 104, 120, 144];
+
+Template.element.helpers({
+  fontFamilies: fontFamiliesItems,
+  fontSizes: fontSizeItems
+});
