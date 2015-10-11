@@ -3,37 +3,54 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-  <h1>Create new canvas</h1>
+        <h1>Create new canvas</h1>
 
-  <!-- canvas -->
-  <div class="canvas">
-      {{#each currentCanvasHelper}}
-        {{> element }}
-      {{/each}}
-  </div>
 
-  <!-- choose theme -->
-  Theme:
-  <select id="theme-select">
-    {{#each themes}}
-      <option value="{{_id}}"> {{name}} </option>
-    {{/each}}
-  </select>
+        <!-- canvas -->
+        <div class="canvas">
+            {{#each currentCanvasHelper}}
+              {{#if isText}}
+                {{> element }}
+              {{/if}}
+              {{#if isImage}}
+                {{> imageElement}}
+              {{/if}}
+            {{/each}}
+        </div>
 
-  <!-- add -->
-  <button id="submit-button">add text element</button>
+        <!-- choose theme -->
+        Theme:
+        <select id="theme-select">
+          {{#each themes}}
+            <option value="{{_id}}"> {{name}} </option>
+          {{/each}}
+        </select>
 
-  <!-- save -->
-  <button id="save-button">save</button>
-  <input id="canvas-name-input" value="{{getCurrentCanvasName}}" />
+        <!-- add -->
+        <button id="submit-button">add text element</button>
+        <button id="submit-button-img">add image element</button>
 
-  <!-- load -->
-  <button id="load-button">load</button>
-  <select id="load-button-select">
-    {{#each canvases}}
-      <option value="{{_id}}"> {{name}} </option>
-    {{/each}}
-  </select>
+        <!-- save -->
+        <button id="save-button">save</button>
+        <input id="canvas-name-input" value="{{getCurrentCanvasName}}" />
+
+
+        <!-- save -->
+        <button id="save-button">save</button>
+        <input id="canvas-name-input" />
+
+
+  <!-- add thumbnail -->
+  <input id="thumbnail" name="thumbnail" placeholder ="Add thumbnail(Optional)">
+
+
+        <!-- load -->
+        <button id="load-button">load</button>
+        <select id="load-button-select">
+          {{#each canvases}}
+            <option value="{{_id}}"> {{name}} </option>
+          {{/each}}
+        </select>
 
       </div>
     </div>

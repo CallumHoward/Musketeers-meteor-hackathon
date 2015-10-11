@@ -6,13 +6,16 @@
 
     <div class="edit-element" data-id="{{_id}}"
         style="visibility: hidden">
-      {{> elementEditor elementId=this._id}}
+      <!-- {{> elementEditor elementId=this._id}} -->
     </div>
 
     <br/>
-    <div class="element-item element-resizable" data-id="{{_id}}"
-        style="">
-      <img src="{{src}}" width={{width}} height={{height}}/>
+    <div class="element-item resizable" data-id="{{_id}}"
+        style="padding: 16px;
+              resize: both;
+              background-image: url({{src}});
+              width: {{width}}px;
+              height: {{height}}px;">
     </div>
 
   </div>

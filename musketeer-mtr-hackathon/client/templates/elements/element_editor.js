@@ -43,3 +43,7 @@ Template.elementEditor.events({
     Elements.update(elementId, {$set: propToSet});
   }
 });
+
+Template.elementEditor.events({
+
+});

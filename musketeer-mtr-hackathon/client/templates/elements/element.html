@@ -5,7 +5,7 @@
             top: {{top}}px;">
 
     <div class="edit-element" data-id="{{_id}}"
-        style="visibility: hidden">
+        style="visibility: hidden; width: 480px">
       {{> elementEditor elementId=this._id}}
     </div>
 
@@ -13,6 +13,7 @@
     <div class="element-item element-resizable" data-active="false" data-id="{{_id}}"
         style="color: {{fontColor}};
               text-align: {{textAlign}};
+              padding: 16px;
               font: {{fontStyle}}
                     {{fontWeight}}
                     {{fontSize}}px
