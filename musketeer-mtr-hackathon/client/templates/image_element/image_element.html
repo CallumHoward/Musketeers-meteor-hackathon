@@ -1,0 +1,19 @@
+<template name="imageElement">
+  <div class="element-draggable draggable" data-id="{{_id}}"
+      style="position: absolute;
+            left: {{left}}px;
+            top: {{top}}px;">
+
+    <div class="edit-element" data-id="{{_id}}"
+        style="visibility: hidden">
+      {{> elementEditor elementId=this._id}}
+    </div>
+
+    <br/>
+    <div class="element-item element-resizable" data-id="{{_id}}"
+        style="">
+      <img src="{{src}}" width={{width}} height={{height}}/>
+    </div>
+
+  </div>
+</template>
