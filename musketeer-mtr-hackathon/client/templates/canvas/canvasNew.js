@@ -74,5 +74,11 @@ Template.canvasNew.helpers({
         } else {
             return "untitled_canvas";
         }
+    },
+    isText: function() {
+      return this.type === 'text';
+    },
+    isImage: function() {
+      return this.type === 'image';
     }
 });
