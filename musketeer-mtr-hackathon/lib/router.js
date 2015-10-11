@@ -7,7 +7,9 @@ Router.route('/', {
   name: 'homepage',
   data: function(){
     return{
-      elements: Elements.find()
+      canvases: Canvases.find(),
+      elements: Elements.find(),
+      themes:   Themes.find(),
     };
   }
 });
@@ -19,6 +21,7 @@ Router.route('/canvasNew', {
     return{
       canvases: Canvases.find(),
       elements: Elements.find(),
+      themes:   Themes.find(),
     };
   }
 });
