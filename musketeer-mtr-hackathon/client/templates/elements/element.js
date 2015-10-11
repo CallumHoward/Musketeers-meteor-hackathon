@@ -8,6 +8,15 @@ Template.element.events({
     Elements.update(elementId, {$set: {text: text}});
   },
 
+  'click .delete-element': function(e) {
+    e.preventDefault();
+
+    console.log("delete");
+
+    var elementId = $(e.target).data("id");
+    Elements.remove(elementId);
+  },
+
   'mouseenter .element-draggable': function(e) {
     $(e.target).css('border', 'dashed 1px rgba(0,0,0,0.4)');
   },
