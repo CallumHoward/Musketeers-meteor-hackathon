@@ -22,9 +22,9 @@ Template.elementEditor.helpers({
   },
   checkSelected: function(attr) {
     var selectedElement = Elements.findOne(
-      {_id: Template.parentData(1)._id}
+      {_id: Template.parentData(1).elementId}
     );
-    if (selectedElement[attr] === this[attr]) {
+    if (selectedElement[attr] == this) {
       return "selected";
     }
   }
