@@ -69,7 +69,7 @@ Template.canvasNew.events({
 //            return element._id;
 //    });
 
-    Session.set("currentCanvas", currentCanvasElements);
+    //Session.set("currentCanvas", currentCanvasElements);
   },
 
   'click #submit-button-img': function(e) {
@@ -87,6 +87,13 @@ Template.canvasNew.events({
         })
     );
 
+    console.log(_.map(
+        Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
+            return element._id;
+        }
+    ));
+
+
     Session.set("currentCanvas", _.map(
         Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
             return element._id;
@@ -98,9 +105,9 @@ Template.canvasNew.events({
     e.preventDefault();
     var canvasName = $("#canvas-name-input").val();
     // extract element ids from session
-    var elements = _.map(Session.get("currentCanvas"), function(element){ return element._id; });
+    var elements = _.map(Session.get("currentCanvas"), function(element){ return element; });
     var thumbnail = $("#thumbnail").val();
-    console.log(thumbnail);
+    console.log(elements);
     var currentCanvasId = Canvases.insert({name: canvasName, elements: elements, thumbnail: thumbnail});
     Session.set("currentCanvasId", currentCanvasId);
   },
@@ -108,9 +115,7 @@ Template.canvasNew.events({
   'click #load-button': function(e) {
     e.preventDefault();
     var canvasId = $("#load-button-select").val();
-    console.error(canvasId);
     var elementIds = Canvases.findOne(canvasId).elements;
-    console.error(elementIds);
     Session.set("currentCanvas", elementIds);
   }
 });
