@@ -1,0 +1,11 @@
+<template name="imageElementEditor">
+  <select data-id="{{elementId}}" name="backgroundRepeat">
+    {{#each backgroundRepeats}}
+      <option selected="" value="{this}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  URL: <input name="src" type="text" data-id="{{elementId}}" width="240px" style="color: black"/>
+
+  Position: <input name="backgroundPosition" data-id="{{elementId}}" type="text" width="240px" style="color: black"/>
+</template>
