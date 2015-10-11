@@ -6,9 +6,17 @@
       <div class="col-md-8">
         <div class="home-canvas">
           <div class="canvas">
-            {{#each elements}}
-              {{> element}}
+        <!-- canvas -->
+        <div class="canvas">
+            {{#each currentCanvasHelper}}
+              {{#if isText}}
+                {{> element }}
+              {{/if}}
+              {{#if isImage}}
+                {{> imageElement}}
+              {{/if}}
             {{/each}}
+        </div>
           </div>
         </div>
       </div>
@@ -19,7 +27,7 @@
           <div class="col-md-12">
 
             {{#each canvases}}
-              <div class="canvas-thumbnail" style=" background: {{#if thumbnail}} url({{thumbnail}}) no-repeat center center;   background-size: cover; color: white; {{/if}}">
+            <div data-id="{{_id}}" class="canvas-thumbnail canvas-selector" style=" background: {{#if thumbnail}} url({{thumbnail}}) no-repeat center center;   background-size: cover; color: white; {{/if}}">
                 {{name}}
               </div>
             {{/each}}
