@@ -38,6 +38,28 @@ Template.canvasNew.events({
     ));
   },
 
+  'click #submit-button-img': function(e) {
+    e.preventDefault();
+
+    var currentCanvasElements = [];
+    currentCanvasElements.push(
+        Elements.insert({
+            type: 'image',
+            top: 50,
+            left: 50,
+            width: 100,
+            height: 100,
+            src: 'https://d117r1wt3t6ahr.cloudfront.net/MABK1bb8RLs/1/thumbnail.png'
+        })
+    );
+
+    Session.set("currentCanvas", _.map(
+        Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
+            return element._id;
+        }
+    ));
+  },
+
   'click #save-button': function(e) {
     e.preventDefault();
     var canvasName = $("#canvas-name-input").val();
@@ -80,5 +102,3 @@ Template.canvasNew.helpers({
       return this.type === 'image';
     }
 });
-
-
