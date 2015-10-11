@@ -55,8 +55,4 @@ Template.canvasNew.helpers({
             return Elements.findOne(elementId);
         });
     },
-
-//    canvasName: function(canvasId) {
-//        return Canvases.findOne(canvasId).name;
-//    }
 });

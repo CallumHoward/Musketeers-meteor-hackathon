@@ -8,7 +8,15 @@
       {{/each}}
   </div>
 
-  <!-- button -->
+  <!-- choose theme -->
+  Theme:
+  <select id="theme-select">
+    {{#each themes}}
+      <option value="{{_id}}"> {{name}} </option>
+    {{/each}}
+  </select>
+
+  <!-- add -->
   <button id="submit-button">add text element</button>
 
   <!-- save -->
