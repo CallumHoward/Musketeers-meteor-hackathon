@@ -80,3 +80,5 @@ Template.canvasNew.helpers({
       return this.type === 'image';
     }
 });
+
+
