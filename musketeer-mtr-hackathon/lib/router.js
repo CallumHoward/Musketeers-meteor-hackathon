@@ -22,3 +22,12 @@ Router.route('/canvasNew', {
     };
   }
 });
+
+
+Router.route('/themesIndex', {
+  name: 'themesIndex',
+  data: function(){
+    return {
+      themes: Themes.find();
+    };
+}):
