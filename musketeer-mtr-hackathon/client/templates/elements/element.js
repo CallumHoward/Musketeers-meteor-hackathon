@@ -16,10 +16,10 @@ Template.element.events({
     Elements.remove(elementId);
   },
 
-  'mouseenter .element-draggable': function(e) {
+  'mouseenter .element-item': function(e) {
     $(e.target).css('border', 'dashed 1px rgba(0,0,0,0.4)');
   },
-  'mouseleave .element-draggable': function(e) {
+  'mouseleave .element-item': function(e) {
     $(e.target).css('border', 'dashed 1px transparent');
   },
 
