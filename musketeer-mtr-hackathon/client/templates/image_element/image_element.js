@@ -24,10 +24,10 @@ Template.imageElement.events({
   },
 
 
-  'focus .element-draggable': function() {
+  'click .element-draggable': function() {
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },
-  'blur .element-draggable': function() {
+  'mouseleave .element-draggable': function() {
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'hidden');
   },
 });
