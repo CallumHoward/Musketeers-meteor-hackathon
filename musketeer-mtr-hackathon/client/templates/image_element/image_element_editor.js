@@ -27,4 +27,4 @@ Template.imageElementEditor.events({
 
     Elements.update(elementId, {$set: propToSet});
   }
-})
+});
