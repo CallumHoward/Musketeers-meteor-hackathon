@@ -31,6 +31,7 @@ Template.element.events({
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },
   'blur .element-draggable': function() {
+
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'hidden');
   },
 });

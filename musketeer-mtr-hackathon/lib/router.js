@@ -31,6 +31,11 @@ Router.route('/themesIndex', {
   name: 'themesIndex',
   data: function(){
     return {
-      themes: Themes.find();
+      themes: Themes.find(),
     };
-}):
+  }
+});
+
+Router.route('/signup', {
+  name: 'signup'
+});
