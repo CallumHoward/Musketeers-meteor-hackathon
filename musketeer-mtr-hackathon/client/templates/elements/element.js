@@ -10,10 +10,9 @@ Template.element.events({
 
   'click .delete-element': function(e) {
     e.preventDefault();
-
     console.log("delete");
-
     var elementId = $(e.target).data("id");
+    console.log(elementId);
     Elements.remove(elementId);
   },
 
@@ -40,7 +39,6 @@ Template.element.events({
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'visible');
   },
   'blur .element-draggable': function() {
-
     $('.edit-element[data-id="'+ this._id +'"]').css('visibility', 'hidden');
   },
 });
