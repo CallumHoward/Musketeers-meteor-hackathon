@@ -43,7 +43,9 @@ Template.canvasNew.events({
     var canvasName = $("#canvas-name-input").val();
     // extract element ids from session
     var elements = _.map(Session.get("currentCanvas"), function(element){ return element._id; });
-    var currentCanvasId = Canvases.insert({name: canvasName, elements: elements});
+    var thumbnail = $("#thumbnail").val();
+    console.log(thumbnail);
+    var currentCanvasId = Canvases.insert({name: canvasName, elements: elements, thumbnail: thumbnail});
     Session.set("currentCanvasId", currentCanvasId);
   },
 
@@ -74,5 +76,3 @@ Template.canvasNew.helpers({
         }
     }
 });
-
-
