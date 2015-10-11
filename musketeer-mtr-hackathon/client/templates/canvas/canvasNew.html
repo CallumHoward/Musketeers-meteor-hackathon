@@ -1,34 +1,46 @@
 <template name="canvasNew">
-  <h1>Create new canvas</h1>
+  {{>header}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Create new canvas</h1>
 
-  <!-- canvas -->
-  <div class="canvas">
-      {{#each currentCanvasHelper}}
-        {{> element }}
-      {{/each}}
-  </div>
+        <!-- canvas -->
+        <div class="canvas">
+            {{#each currentCanvasHelper}}
+              {{> element }}
+            {{/each}}
+        </div>
 
-  <!-- choose theme -->
-  Theme:
-  <select id="theme-select">
-    {{#each themes}}
-      <option value="{{_id}}"> {{name}} </option>
-    {{/each}}
-  </select>
+        <!-- choose theme -->
+        Theme:
+        <select id="theme-select">
+          {{#each themes}}
+            <option value="{{_id}}"> {{name}} </option>
+          {{/each}}
+        </select>
 
-  <!-- add -->
-  <button id="submit-button">add text element</button>
-
+<<<<<<< HEAD
+        <!-- add -->
+        <button id="submit-button">add text element</button>
+=======
   <!-- save -->
   <button id="save-button">save</button>
-  <input id="canvas-name-input" />
+  <input id="canvas-name-input" value="{{getCurrentCanvasName}}" />
+>>>>>>> 893ffb7f453e87fb274814b94179d1cb496e94a4
 
-  <!-- load -->
-  <button id="load-button">load</button>
-  <select id="load-button-select">
-    {{#each canvases}}
-      <option value="{{_id}}"> {{name}} </option>
-    {{/each}}
-  </select>
+        <!-- save -->
+        <button id="save-button">save</button>
+        <input id="canvas-name-input" />
 
+        <!-- load -->
+        <button id="load-button">load</button>
+        <select id="load-button-select">
+          {{#each canvases}}
+            <option value="{{_id}}"> {{name}} </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
 </template>

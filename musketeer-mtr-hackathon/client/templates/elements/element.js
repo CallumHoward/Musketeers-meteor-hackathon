@@ -10,10 +10,9 @@ Template.element.events({
 
   'click .delete-element': function(e) {
     e.preventDefault();
-
     console.log("delete");
-
     var elementId = $(e.target).data("id");
+    console.log(elementId);
     Elements.remove(elementId);
   },
 
