@@ -1,11 +1,51 @@
 <template name="canvasNew">
   {{>header}}
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        <h1>Create new canvas</h1>
 
+      <div class="col-md-3">
+        <br/><br/><br/><br/>
+        <!-- choose theme -->
+        <!-- Theme:
+        <select id="theme-select">
+          {{#each themes}}
+            <option value="{{_id}}"> {{name}} </option>
+          {{/each}}
+        </select> -->
 
+        <!-- add -->
+        <button class="btn btn-lg btn-success" style="width: 100%" id="submit-button">Add text element</button>
+        <br/><br/>
+
+        <!-- save -->
+        <div class="save-area">
+          <h4><b>Save Canvas</b></h4>
+          <input class="form-control" id="canvas-name-input" value="{{getCurrentCanvasName}}" />
+          <br/>
+          <input class="form-control" id="thumbnail" name="thumbnail" placeholder ="Add thumbnail(Optional)">
+          <br/>
+          <button class="btn btn-info btn-lg" id="save-button" style="width: 100%">Save</button>
+          <!-- add thumbnail -->
+
+        </div>
+        <br/>
+
+          <!-- load -->
+          <div class="load-area">
+            <h4><b>Load Canvas</b></h4>
+            <select id="load-button-select" class="form-control">
+              {{#each canvases}}
+                <option value="{{_id}}"> {{name}} </option>
+              {{/each}}
+            </select>
+            <br/>
+            <button class="btn btn-info btn-lg" id="load-button" style="width: 100%">load</button>
+          </div>
+      </div>
+
+      <div class="col-md-9">
+        <br/>
+        <h2><b>Create new canvas</b></h2>
         <!-- canvas -->
         <div class="canvas">
             {{#each currentCanvasHelper}}
@@ -17,40 +57,6 @@
               {{/if}}
             {{/each}}
         </div>
-
-        <!-- choose theme -->
-        Theme:
-        <select id="theme-select">
-          {{#each themes}}
-            <option value="{{_id}}"> {{name}} </option>
-          {{/each}}
-        </select>
-
-        <!-- add -->
-        <button id="submit-button">add text element</button>
-
-        <!-- save -->
-        <button id="save-button">save</button>
-        <input id="canvas-name-input" value="{{getCurrentCanvasName}}" />
-
-
-        <!-- save -->
-        <button id="save-button">save</button>
-        <input id="canvas-name-input" />
-
-
-  <!-- add thumbnail -->
-  <input id="thumbnail" name="thumbnail" placeholder ="Add thumbnail(Optional)">
-
-
-        <!-- load -->
-        <button id="load-button">load</button>
-        <select id="load-button-select">
-          {{#each canvases}}
-            <option value="{{_id}}"> {{name}} </option>
-          {{/each}}
-        </select>
-
       </div>
     </div>
   </div>

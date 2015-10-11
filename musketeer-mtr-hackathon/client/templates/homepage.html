@@ -19,7 +19,7 @@
           <div class="col-md-12">
 
             {{#each canvases}}
-              <div class="canvas-thumbnail" style=" background: url({{thumbnail}}) no-repeat center center;   background-size: cover; color: white;">
+              <div class="canvas-thumbnail" style=" background: {{#if thumbnail}} url({{thumbnail}}) no-repeat center center;   background-size: cover; color: white; {{/if}}">
                 {{name}}
               </div>
             {{/each}}
