@@ -7,17 +7,51 @@ Template.canvasNew.events({
     var contentWidth = 500;
     var centerOffset = contentWidth / 2;
 
-    var currentCanvasElements = [];
-    currentCanvasElements.push(
-        Elements.insert({
-            type: 'text',
-            text: 'Title',
-            align: 'center',
-            top: 50,
-            left: canvasOffset - centerOffset,
-            textBoxWidth: contentWidth
-        })
-    );
+//    var currentCanvasId = Session.get("currentCanvasId");
+//    var currentCanvasElements = [];
+//
+//    // if it's not the defult blank canvas
+//    if (currentCanvasId) {
+//        currentCanvasElements = _.map(Canvases.findOne(currentCanvasId).elements, function(e){
+//            return e;
+//        });
+//        console.error("currentCanvasElements:");
+//        console.error(currentCanvasElements);
+//    }
+//
+//    currentCanvasElements.push(
+//        Elements.insert({
+//            type: 'text',
+//            text: 'Title',
+//            align: 'center',
+//            top: 50,
+//            left: canvasOffset - centerOffset,
+//            textBoxWidth: contentWidth
+//        })
+//    );
+
+    Elements.insert({
+      type: 'text',
+      text: 'Title',
+      align: 'center',
+      top: 50,
+      left: canvasOffset - centerOffset,
+      textBoxWidth: contentWidth
+    });
+
+    Elements.insert({
+      type: 'text',
+      text: 'main content',
+      align: 'left',
+      top: 150,
+      left: canvasOffset - centerOffset,
+      textBoxWidth: contentWidth,
+      textBoxHeight: 200
+    });
+
+    Session.set("currentCanvas", _.map(Elements.find().fetch(), function(element){
+        return element._id;
+    }));
 
     currentCanvasElements.push(
         Elements.insert({
@@ -31,11 +65,11 @@ Template.canvasNew.events({
         })
     );
 
-    Session.set("currentCanvas", _.map(
-        Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
-            return element._id;
-        }
-    ));
+//    var elementIds = _.map( Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
+//            return element._id;
+//    });
+
+    //Session.set("currentCanvas", currentCanvasElements);
   },
 
   'click #submit-button-img': function(e) {
@@ -53,6 +87,13 @@ Template.canvasNew.events({
         })
     );
 
+    console.log(_.map(
+        Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
+            return element._id;
+        }
+    ));
+
+
     Session.set("currentCanvas", _.map(
         Elements.find({_id: {$in: currentCanvasElements}}).fetch(), function(element){
             return element._id;
@@ -64,9 +105,9 @@ Template.canvasNew.events({
     e.preventDefault();
     var canvasName = $("#canvas-name-input").val();
     // extract element ids from session
-    var elements = _.map(Session.get("currentCanvas"), function(element){ return element._id; });
+    var elements = _.map(Session.get("currentCanvas"), function(element){ return element; });
     var thumbnail = $("#thumbnail").val();
-    console.log(thumbnail);
+    console.log(elements);
     var currentCanvasId = Canvases.insert({name: canvasName, elements: elements, thumbnail: thumbnail});
     Session.set("currentCanvasId", currentCanvasId);
   },
@@ -74,7 +115,6 @@ Template.canvasNew.events({
   'click #load-button': function(e) {
     e.preventDefault();
     var canvasId = $("#load-button-select").val();
-    console.log(canvasId);
     var elementIds = Canvases.findOne(canvasId).elements;
     Session.set("currentCanvas", elementIds);
   }
