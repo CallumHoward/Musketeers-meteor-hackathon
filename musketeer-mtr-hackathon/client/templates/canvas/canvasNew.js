@@ -74,3 +74,5 @@ Template.canvasNew.helpers({
         }
     }
 });
+
+
